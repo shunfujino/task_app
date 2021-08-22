@@ -1,0 +1,41 @@
+<div class="main_container">
+    <div class="information">
+        <h2>スケジュール詳細</h2>
+
+    </div>
+    <table>
+        <tbody>
+            <tr>
+                <th>タイトル</th>
+                <td><%= @post.title %></td>
+            </tr>
+            <tr>
+                <th>開始日</th>
+                <td><%= @post.start_date.strftime('%Y年%m月%d日  %H時%M分') %></td>
+            </tr>
+            <tr>
+                <th>投稿日時</th>
+                <td><%= @post.created_at.strftime('%Y年%m月%d日  %H時%M分') %></td>
+            </tr>
+            <tr>
+                <th>終日</th>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <th>スケジュールメモ</th>
+                <td>
+                    <pre><%= @post.memo %></pre>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li><a href="/">スケジュール一覧に戻る</a></li>
+        <li><%= link_to("スケジュールを編集","/posts/#{@post.id}/edit") %></li>
+        <li>
+            <%= link_to("スケジュールを削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+        </li>
+    </ul>
+</div>
